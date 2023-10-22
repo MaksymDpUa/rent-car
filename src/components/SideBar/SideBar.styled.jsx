@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const SideBarFilters = styled.form`
   display: flex;
@@ -32,14 +32,14 @@ export const Input = styled.input`
   /* justify-content: center;
   align-items: center; */
   /* gap: 32px; */
-  width: ${(props) => {
+  width: ${props => {
     switch (props.name) {
-      case "brand":
-        return "224px";
-      case "price":
-        return "125px";
+      case 'brand':
+        return '224px';
+      case 'price':
+        return '125px';
       default:
-        return "160px";
+        return '160px';
     }
   }};
   border-radius: 14px;
@@ -64,6 +64,7 @@ export const SearchBtn = styled.button`
   font-style: normal;
   font-weight: 600;
   line-height: 20px; /* 142.857% */
+  cursor: pointer;
 `;
 
 export const ShevronBtn = styled.button`

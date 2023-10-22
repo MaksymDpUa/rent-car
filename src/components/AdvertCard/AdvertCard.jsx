@@ -1,5 +1,5 @@
-import axios from "axios";
-import css from "./AdvertCard.module.css";
+// import axios from "axios";
+// import css from "./AdvertCard.module.css";
 import {
   AdvertCardBox,
   AutoImg,

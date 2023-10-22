@@ -12,4 +12,5 @@ export const LoadMoreBtnEl = styled.button`
   font-weight: 500;
   line-height: 24px; /* 150% */
   text-decoration-line: underline;
+  cursor: pointer;
 `;

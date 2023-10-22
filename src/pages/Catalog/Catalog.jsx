@@ -1,11 +1,12 @@
 // import axios from "axios";
-import { useState } from "react";
+import { ContainerWrapper } from 'components/App/App.styled';
+import { useState } from 'react';
 // import { useDispatch, useSelector } from "react-redux";
-import { AdvertList } from "../../components/AdvertList/AdvertList";
-import { LoadMoreBtn } from "../../components/LoadMoreBtn/LoadMoreBtn";
-import { SideBar } from "../../components/SideBar/SideBar";
+import { AdvertList } from '../../components/AdvertList/AdvertList';
+import { LoadMoreBtn } from '../../components/LoadMoreBtn/LoadMoreBtn';
+import { SideBar } from '../../components/SideBar/SideBar';
 // import { getAdverts } from "../../helpers/api/fetchAdverts";
-import { useFetchAdverts } from "../../hooks/useFetchAdverts";
+import { useFetchAdverts } from '../../hooks/useFetchAdverts';
 // import { fetchAdverts } from "../../redux/adverts/advertsOperations";
 // import { selectAdverts } from "../../redux/adverts/advertsSelectors";
 
@@ -22,11 +23,11 @@ const Catalog = () => {
   const { adverts: catalog, noMoreAdverts } = useFetchAdverts(page, query);
 
   const handleLoadMore = () => {
-    setPage((prevPage) => prevPage + 1);
+    setPage(prevPage => prevPage + 1);
   };
 
-  const handleChangeQuery = (params) => {
-    setQuery((prevParams) => ({ ...query, ...params }));
+  const handleChangeQuery = params => {
+    setQuery(prevParams => ({ ...query, ...params }));
   };
 
   //   useEffect(() => {
@@ -53,12 +54,11 @@ const Catalog = () => {
   //   console.log(adv);
 
   return (
-    <>
-      <h1>Catalog</h1>
+    <ContainerWrapper>
       <SideBar handleChangeQuery={handleChangeQuery} />
       <AdvertList catalog={catalog} />
       {!noMoreAdverts && <LoadMoreBtn handleLoadMore={handleLoadMore} />}
-    </>
+    </ContainerWrapper>
   );
 };
 export default Catalog;

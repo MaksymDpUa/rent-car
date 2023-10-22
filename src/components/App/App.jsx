@@ -1,13 +1,13 @@
 // import { SideBar } from "../SideBar/SideBar";
-import { Route, Routes } from "react-router-dom";
-import Catalog from "../../pages/Catalog/Catalog";
-import Favorites from "../../pages/Favorites/Favorites";
-import HomePage from "../../pages/HomePage/HomePage";
-import { ContainerWrapper } from "./App.styled";
+import { Route, Routes } from 'react-router-dom';
+import Catalog from '../../pages/Catalog/Catalog';
+import Favorites from '../../pages/Favorites/Favorites';
+import HomePage from '../../pages/HomePage/HomePage';
+// import { ContainerWrapper } from './App.styled';
 
 const App = () => {
   return (
-    <ContainerWrapper>
+    <>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<Catalog />} />
@@ -15,7 +15,7 @@ const App = () => {
       </Routes>
       {/* <SideBar />
       <p>Hello</p> */}
-    </ContainerWrapper>
+    </>
   );
 };
 
