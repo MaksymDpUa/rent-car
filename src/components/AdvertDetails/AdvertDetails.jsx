@@ -1,4 +1,3 @@
-// import Modal from '../Modal/Modal';
 import {
   Image,
   ModalContent,
@@ -15,7 +14,7 @@ import {
   Button,
   ImgThumb,
 } from './AdvertDetails.styled';
-// import { formatNumberWithCommas } from 'helpers/formatNumberWithCommas';
+
 import { formatMileage } from 'helpers/utils/formatMileage';
 
 export const AdvertDetails = ({ isModalOpen, closeModal, car }) => {
@@ -47,7 +46,7 @@ export const AdvertDetails = ({ isModalOpen, closeModal, car }) => {
   const mileageFormat = formatMileage(mileage);
 
   return (
-    // <Modal isOpen={isModalOpen} onClose={closeModal}>
+
     <ModalContent>
       <ImgThumb>
              <Image src={img} alt={model} />
@@ -101,8 +100,8 @@ export const AdvertDetails = ({ isModalOpen, closeModal, car }) => {
       </DescWrapper>
       <Button to="tel:+380730000000">Rental car</Button>
     </ModalContent>
-    // </Modal>
+
   );
 };
 
-// export default CarDescription;
+

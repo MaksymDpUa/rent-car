@@ -49,7 +49,6 @@ export const Input = styled.input`
 export const SearchBtn = styled.button`
   display: flex;
   border-radius: 12px;
-  background: #3470ff;
   width: 136px;
   height: 48px;
   padding: 14px 44px;
@@ -57,10 +56,13 @@ export const SearchBtn = styled.button`
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  color: var(--white);
+  color: var(--invert-color);
+  background-color: var(--accent-color);
+  &:hover {
+    background-color: var(--accent-hover);
+  }
   font-family: Manrope;
   font-size: 14px;
-  font-style: normal;
   font-weight: 600;
   line-height: 20px; /* 142.857% */
   cursor: pointer;

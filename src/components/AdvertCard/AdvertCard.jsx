@@ -1,9 +1,7 @@
-// import axios from "axios";
-// import css from "./AdvertCard.module.css";
 import sprite from 'asset/images/sprite.svg';
 import { AdvertDetails } from 'components/AdvertDetails/AdvertDetails';
 import { formatMileage } from 'helpers/utils/formatMileage';
-import Modal from 'Modal/Modal';
+import Modal from 'components/Modal/Modal';
 import { useState } from 'react';
 import {
   AdvertCardBox,
@@ -19,8 +17,7 @@ import {
   SecondaryInfo,
   Separator,
 } from './AdvertCard.styled';
-export const AdvertCard = ({ car }) => {
-  // console.log(advert)
+export const AdvertCard = ({ car, favorite = false, toggleFavorite }) => {
   const {
     make,
     model,
@@ -34,6 +31,7 @@ export const AdvertCard = ({ car }) => {
     type,
     mileage,
     functionalities,
+    id,
   } = car;
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal(showModal => !showModal);
@@ -45,13 +43,12 @@ export const AdvertCard = ({ car }) => {
     <AdvertCardBox>
       <ImageThumb>
         <AutoImg src={imgUrl} alt={description} />{' '}
-        <FavoriteBtn>
-          <FavoriteIcon>
+        <FavoriteBtn onClick={() => toggleFavorite(id)}>
+          <FavoriteIcon favorite={favorite}>
             <use xlinkHref={`${sprite}#icon-heart`}></use>
           </FavoriteIcon>
         </FavoriteBtn>
       </ImageThumb>
-      {/* onClick={() => toggleFavorite(carInfo.id)}favorite={favorite} */}
       <MainInfo>
         <Model>
           {make} <span>{model}</span>, {year}
@@ -67,50 +64,14 @@ export const AdvertCard = ({ car }) => {
           {type} <Separator> | </Separator> {model} <Separator> | </Separator>
           {formatedMileage} <Separator> | </Separator> {functionalities[0]}
         </Details>
-        {/* <p>
-          <span>{companyAdress[1].trim()}</span>
-          <span>{companyAdress[2].trim()}</span>
-          <span>{rentalCompany}</span>
-          <span>{type}</span>
-          <span>{model}</span>
-          <span>{formatedMileage}</span>
-          <span>{functionalities[0]}</span>
-        </p> */}
       </SecondaryInfo>
       <DetailsBtn onClick={toggleModal}>Learn more</DetailsBtn>
       {showModal && (
         <Modal onClose={toggleModal}>
           <AdvertDetails car={car} />
-          {/* <ModalContainer onClose={toggleModal}> */}
-          {/* <PopUpContent carInfo={carInfo} /> */}
-          {/* </ModalContainer> */}
         </Modal>
       )}
     </AdvertCardBox>
   );
 };
 
-// "id": 9582,
-//         "year": 2008,
-//         "make": "Buick",
-//         "model": "Enclave",
-//         "type": "SUV",
-//         "img": "https://res.cloudinary.com/ditdqzoio/image/upload/v1687252635/cars/buick_enclave.jpg",
-//         "description": "The Buick Enclave is a stylish and spacious SUV known for its comfortable ride and luxurious features.",
-//         "fuelConsumption": "10.5",
-//         "engineSize": "3.6L V6",
-//         "accessories": [
-//             "Leather seats",
-//             "Panoramic sunroof",
-//             "Premium audio system"
-//         ],
-//         "functionalities": [
-//             "Power liftgate",
-//             "Remote start",
-//             "Blind-spot monitoring"
-//         ],
-//         "rentalPrice": "$40",
-//         "rentalCompany": "Luxury Car Rentals",
-//         "address": "123 Example Street, Kiev, Ukraine",
-//         "rentalConditions": "Minimum age: 25\nValid driver's license\nSecurity deposit required",
-//         "mileage": 5858

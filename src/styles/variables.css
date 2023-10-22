@@ -1,16 +1,16 @@
 :root {
-    --accent-color: #3470FF;
-    --accent-hover: #0B44CD;
-    --primary-color: #121417;
-    --secondary-color: #12141780;
-    --label-color: #8A8A89;
-    --invert-color: #FFFFFF;
-    --select-color: #12141733;
-    --separator-color: #1214171A;
+  --accent-color: #3470ff;
+  --accent-hover: #0b44cd;
+  --primary-color: #121417;
+  --secondary-color: #12141780;
+  --label-color: #8a8a89;
+  --invert-color: #ffffff;
+  --select-color: #12141733;
+  --separator-color: #1214171a;
+  --heart-stroke-color: #ffffffcc;
+  --bg-color: #ffffff;
+  --input-bg-color: #f7f7fb;
 
-    --bg-color: #FFFFFF;
-    --input-bg-color: #F7F7FB;
-
-    --condition-bg-color: #F9F9F9;
-    --condition-color: #363535;
+  --condition-bg-color: #f9f9f9;
+  --condition-color: #363535;
 }

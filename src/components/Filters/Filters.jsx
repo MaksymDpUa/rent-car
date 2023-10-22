@@ -7,10 +7,8 @@ import {
   ShevronBtn,
   Input,
 } from './Filters.styled';
-// import shewron from "../../asset/shevron.svg";
 import { IoIosArrowDown } from 'react-icons/io';
 import { useState } from 'react';
-import Section from 'components/Section/Section';
 
 export const Filters = ({ handleChangeQuery }) => {
   const [make, setMake] = useState('');
@@ -91,8 +89,7 @@ export const Filters = ({ handleChangeQuery }) => {
               name="from"
               value={mileageFrom}
               onChange={handleInputChange}
-            >
-              {/* From */}
+            >       
             </Input>
             <Input
               id={inputMileageId}
@@ -100,12 +97,10 @@ export const Filters = ({ handleChangeQuery }) => {
               name="to"
               value={mileageTo}
               onChange={handleInputChange}
-            >
-              {/* To */}
+            >        
             </Input>
           </InputsThumb>
         </FieldLabel>
-
         <SearchBtn type="submit">Search</SearchBtn>
       </SideBarFilters>
     </>

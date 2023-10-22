@@ -1,9 +1,7 @@
 import { Backdrop, CloseBtn, Container, CloseIcon } from './Modal.styled';
-import { createPortal } from 'react-dom';
+
 import { useEffect } from 'react';
 import sprite from 'asset/images/sprite.svg';
-
-const modalRoot = document.querySelector('#modal-root');
 
 const Modal = ({ children, onClose }) => {
   useEffect(() => {
@@ -37,7 +35,6 @@ const Modal = ({ children, onClose }) => {
         {children}
       </Container>
     </Backdrop>
-    // modalRoot
   );
 };
 

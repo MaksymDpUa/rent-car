@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 
 export const Title = styled.h1`
   display: block;
-  /* margin: 24px auto 16px auto; */
   text-align: center;
   color: #121417;
   font-family: Manrope;
@@ -31,7 +30,7 @@ export const MainNNavLink = styled(NavLink)`
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  color: var(--white);
+  color: var(--invert-color);
   cursor: pointer;
 `;
 

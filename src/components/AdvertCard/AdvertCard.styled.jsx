@@ -96,18 +96,27 @@ export const FavoriteBtn = styled.button`
 export const FavoriteIcon = styled.svg`
   width: 18px;
   height: 18px;
-  /* 
+  
   fill: ${({ favorite }) => (favorite ? 'var(--accent-color)' : 'transparent')};
   stroke: ${({ favorite }) =>
-    favorite ? 'var(--accent-color)' : 'var(--heart-stroke-color)'}; */
+    favorite ? 'var(--accent-color)' : 'var(--heart-stroke-color)'};
 `;
 
 export const DetailsBtn = styled.button`
-  width: 100%;
   margin-top: 28px;
-
-  background-color: var(--accentt-color);
+  width: 100%;
+  height: 44px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--invert-color);
+  background-color: var(--accent-color);
+  &:hover {
+    background-color: var(--accent-hover);
+  }
 `;
+
 export const Details = styled.p`
   color: var(--secondary-color);
   font-size: 12px;

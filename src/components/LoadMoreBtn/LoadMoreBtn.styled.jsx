@@ -1,8 +1,8 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const LoadMoreBtnEl = styled.button`
   display: block;
-  margin: 0 auto;
+  margin: 100px auto 0 auto;
   border: none;
   color: #3470ff;
   background-color: inherit;

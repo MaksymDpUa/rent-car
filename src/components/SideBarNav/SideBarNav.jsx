@@ -9,9 +9,6 @@ export const SideBarNav = () => {
       e.preventDefault();
       return;
     }
-    // console.log(location);
-    // console.log(e.target.href);
-    // if (location.pathname.includes())
   };
 
   return (

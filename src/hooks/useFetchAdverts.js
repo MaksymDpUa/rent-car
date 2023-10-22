@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { fetchAdverts } from "../helpers/api/fetchAdverts";
 
-const useFetchAdverts = (page, params = "") => {
+export const useFetchAdverts = (page, params = "") => {
   const [fetchedAdverts, setFetchedAdverts] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [noMoreAdverts, setNoMoreAdverts] = useState(false);
-  //   const [responseLength, setResponseLength] = useState(0);
 
   useEffect(() => {
     const fulfilledPromise = (newAdverts) => {
@@ -14,7 +13,6 @@ const useFetchAdverts = (page, params = "") => {
       setFetchedAdverts((prevValue) => [...prevValue, ...newAdverts]);
       setError(null);
       if (newAdverts.length < 8) setNoMoreAdverts(true);
-      //   setResponseLength(newAdverts.length);
     };
 
     const rejectedPromise = (error) => {
@@ -23,9 +21,7 @@ const useFetchAdverts = (page, params = "") => {
       setNoMoreAdverts(true);
     };
 
-    // if (page === 1) {
-    //   setFetchedData([]);
-    // }
+
     setIsLoading(true);
     fetchAdverts({ page, limit: 8, ...params })
       .then(fulfilledPromise)
@@ -37,8 +33,7 @@ const useFetchAdverts = (page, params = "") => {
     error,
     isLoading,
     noMoreAdverts,
-    // responseLength
   };
 };
 
-export { useFetchAdverts };
+
