@@ -1,22 +1,22 @@
 // import { SideBar } from "../SideBar/SideBar";
+import SharedLayout from 'components/SharedLayout/SharedLayot';
 import { Route, Routes } from 'react-router-dom';
-import Catalog from '../../pages/Catalog/Catalog';
-import Favorites from '../../pages/Favorites/Favorites';
+import CatalogPage from '../../pages/CatalogPage/CatalogPage';
+import FavoritesPage from '../../pages/FavoritesPage/FavoritesPage';
 import HomePage from '../../pages/HomePage/HomePage';
 // import { ContainerWrapper } from './App.styled';
 
-const App = () => {
+function App() {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/catalog" element={<Catalog />} />
-        <Route path="/favorites" element={<Favorites />} />
-      </Routes>
-      {/* <SideBar />
-      <p>Hello</p> */}
-    </>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<HomePage />}></Route>
+        <Route path="catalog" element={<CatalogPage />}></Route>
+        <Route path="favorites" element={<FavoritesPage />}></Route>
+        <Route path="*" element={<HomePage />}></Route>
+      </Route>
+    </Routes>
   );
-};
+}
 
 export default App;

@@ -10,6 +10,7 @@ import {
 // import shewron from "../../asset/shevron.svg";
 import { IoIosArrowDown } from 'react-icons/io';
 import { useState } from 'react';
+import Section from 'components/Section/Section';
 
 export const Filters = ({ handleChangeQuery }) => {
   const [make, setMake] = useState('');
@@ -52,7 +53,7 @@ export const Filters = ({ handleChangeQuery }) => {
   };
 
   return (
-    <aside>
+    <>
       <SideBarFilters onSubmit={onSubmit}>
         <FieldLabel htmlFor={inputModelId}>
           Car brand
@@ -107,6 +108,6 @@ export const Filters = ({ handleChangeQuery }) => {
 
         <SearchBtn type="submit">Search</SearchBtn>
       </SideBarFilters>
-    </aside>
+    </>
   );
 };

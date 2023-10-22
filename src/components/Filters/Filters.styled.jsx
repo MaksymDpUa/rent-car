@@ -3,10 +3,9 @@ import styled from '@emotion/styled';
 export const SideBarFilters = styled.form`
   display: flex;
   gap: 18px;
-  /* margin: 0 auto; */
+  margin: 0 auto 50px auto;
   justify-content: center;
   align-items: flex-end;
-  margin-bottom: 50px;
 `;
 
 export const FieldLabel = styled.label`

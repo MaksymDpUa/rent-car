@@ -1,5 +1,5 @@
-import { Container } from './HomePageContainer.styled';
+// import { Container } from './HomePageContainer.styled';
 
-export const HomePageContainer = ({ children }) => {
-  return <Container>{children}</Container>;
-};
+// export const HomePageContainer = ({ children }) => {
+//   return <Container>{children}</Container>;
+// };

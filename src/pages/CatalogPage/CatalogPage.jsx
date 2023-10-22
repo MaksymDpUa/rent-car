@@ -1,5 +1,5 @@
 // import axios from "axios";
-import { ContainerWrapper } from 'components/App/App.styled';
+// import { ContainerWrapper } from 'components/App/App.styled';
 import { useCallback, useEffect, useState } from 'react';
 // import { useDispatch, useSelector } from "react-redux";
 import { AdvertList } from '../../components/AdvertList/AdvertList';
@@ -9,6 +9,9 @@ import { Filters } from '../../components/Filters/Filters';
 import { useFetchAdverts } from '../../hooks/useFetchAdverts';
 import { BurgerBtn } from 'BurgerBtn/BurgerBtn';
 import { SideBar } from 'components/SideBar/SideBar';
+import Section from 'components/Section/Section';
+// import { ContainerWrapper } from 'components/ContainerWrapper/ContainerWrapper';
+import { Container } from 'components/Container/Container';
 // import { fetchAdverts } from "../../redux/adverts/advertsOperations";
 // import { selectAdverts } from "../../redux/adverts/advertsSelectors";
 
@@ -41,6 +44,8 @@ const Catalog = () => {
   };
 
   const handleBackdropClick = event => {
+    console.log(event.target);
+    console.log(event.currentTarget);
     if (event.target === event.currentTarget) {
       removeSideBar();
     }
@@ -83,13 +88,17 @@ const Catalog = () => {
   //   console.log(adv);
 
   return (
-    <ContainerWrapper onClick={handleBackdropClick}>
-      {!showSideBar && <BurgerBtn addSideBar={addSideBar} />}
-      <SideBar showSideBar={showSideBar} removeSideBar={removeSideBar} />
-      <Filters handleChangeQuery={handleChangeQuery} />
-      <AdvertList catalog={catalog} />
-      {!noMoreAdverts && <LoadMoreBtn handleLoadMore={handleLoadMore} />}
-    </ContainerWrapper>
+    <Section onClick={handleBackdropClick}>
+      {/* <ContainerWrapper onClick={handleBackdropClick}> */}
+      <Container onClick={handleBackdropClick}>
+        {!showSideBar && <BurgerBtn addSideBar={addSideBar} />}
+        <SideBar showSideBar={showSideBar} removeSideBar={removeSideBar} />
+        <Filters handleChangeQuery={handleChangeQuery} />
+        <AdvertList catalog={catalog} />
+        {!noMoreAdverts && <LoadMoreBtn handleLoadMore={handleLoadMore} />}
+        {/* </ContainerWrapper> */}
+      </Container>
+    </Section>
   );
 };
 export default Catalog;

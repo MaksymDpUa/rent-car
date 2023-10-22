@@ -1,5 +1,5 @@
-import { HomePageContainer } from 'components/HomePageContainer/HomePageContainer';
-import { MainNNavLink, Slogan, Title } from './HomePage.styled';
+// import { HomePageContainer } from 'components/HomePageContainer/HomePageContainer';
+import { HomePageContainer, MainNNavLink, Slogan, Title } from './HomePage.styled';
 
 const HomePage = () => {
   return (

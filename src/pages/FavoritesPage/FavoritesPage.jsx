@@ -1,5 +1,7 @@
 import { BurgerBtn } from 'BurgerBtn/BurgerBtn';
-import { ContainerWrapper } from 'components/App/App.styled';
+import { Container } from 'components/Container/Container';
+import { ContainerWrapper } from 'components/ContainerWrapper/ContainerWrapper';
+// import { ContainerWrapper } from 'components/App/App.styled';
 import { SideBar } from 'components/SideBar/SideBar';
 import { useCallback, useState } from 'react';
 
@@ -13,11 +15,11 @@ const Favorites = () => {
   }, []);
 
   return (
-    <ContainerWrapper>
+    <Container>
       {!showSideBar && <BurgerBtn addSideBar={addSideBar} />}
       <SideBar showSideBar={showSideBar} removeSideBar={removeSideBar} />
       <h1>Hello</h1>
-    </ContainerWrapper>
+    </Container>
   );
 };
 export default Favorites;

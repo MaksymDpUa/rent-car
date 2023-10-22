@@ -101,3 +101,24 @@ export const FavoriteIcon = styled.svg`
   stroke: ${({ favorite }) =>
     favorite ? 'var(--accent-color)' : 'var(--heart-stroke-color)'}; */
 `;
+
+export const DetailsBtn = styled.button`
+  width: 100%;
+  margin-top: 28px;
+
+  background-color: var(--accentt-color);
+`;
+export const Details = styled.p`
+  color: var(--secondary-color);
+  font-size: 12px;
+  line-height: 1.5;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 90%;
+  text-align: left;
+`;
+
+export const Separator = styled.span`
+  color: var(--separator-color);
+`;

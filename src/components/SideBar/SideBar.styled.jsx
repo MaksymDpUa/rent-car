@@ -5,7 +5,7 @@ const isShowSideBar = props => {
 };
 
 export const SideBarEl = styled.aside`
-  position: absolute;
+  /* position: fixed; */
   top: 0px;
   left: 0px;
   display: inline-flex;
@@ -15,7 +15,7 @@ export const SideBarEl = styled.aside`
   height: 100vh;
   background-color: rgba(247, 247, 251, 1);
   z-index: 5;
-  position: absolute;
+  position: fixed;
   transform: translateX(${isShowSideBar});
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
