@@ -1,14 +1,17 @@
 // import axios from "axios";
 // import css from "./AdvertCard.module.css";
+import sprite from 'asset/images/sprite.svg';
 import {
   AdvertCardBox,
   AutoImg,
   CarPrice,
+  FavoriteBtn,
+  FavoriteIcon,
   ImageThumb,
   MainInfo,
   Model,
   SecondaryInfo,
-} from "./AdvertCard.styled";
+} from './AdvertCard.styled';
 export const AdvertCard = ({
   make,
   model,
@@ -25,14 +28,19 @@ export const AdvertCard = ({
 }) => {
   // console.log(advert)
   const imgUrl = img || photoLink;
-    const companyAdress = address.split(",");
-
+  const companyAdress = address.split(',');
 
   return (
     <AdvertCardBox>
       <ImageThumb>
-        <AutoImg src={imgUrl} alt={description} />
+        <AutoImg src={imgUrl} alt={description} />{' '}
+        <FavoriteBtn>
+          <FavoriteIcon>
+            <use xlinkHref={`${sprite}#icon-heart`}></use>
+          </FavoriteIcon>
+        </FavoriteBtn>
       </ImageThumb>
+      {/* onClick={() => toggleFavorite(carInfo.id)}favorite={favorite} */}
       <MainInfo>
         <Model>
           {make} <span>{model}</span>, {year}

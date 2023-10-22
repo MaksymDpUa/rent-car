@@ -1,10 +1,11 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const AdvertCardBox = styled.li`
   width: 274px;
 `;
 
 export const ImageThumb = styled.div`
+  position: relative;
   width: 100%;
   height: 268px;
   margin-bottom: 14px;
@@ -21,6 +22,7 @@ export const AutoImg = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   border-radius: inherit;
 `;
 
@@ -70,4 +72,32 @@ export const SecondaryInfo = styled.div`
       margin-left: 0;
     }
   }
+`;
+
+export const FavoriteBtn = styled.button`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  width: 18px;
+  height: 18px;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+
+  border: none;
+  background-color: transparent;
+
+  cursor: pointer;
+  outline: none;
+`;
+
+export const FavoriteIcon = styled.svg`
+  width: 18px;
+  height: 18px;
+  /* 
+  fill: ${({ favorite }) => (favorite ? 'var(--accent-color)' : 'transparent')};
+  stroke: ${({ favorite }) =>
+    favorite ? 'var(--accent-color)' : 'var(--heart-stroke-color)'}; */
 `;
