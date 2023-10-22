@@ -34,9 +34,6 @@ export const AdvertCard = ({
         <AutoImg src={imgUrl} alt={description} />
       </ImageThumb>
       <MainInfo>
-        {/* <h3>{make}</h3>
-        
-        <p>{model}</p> */}
         <Model>
           {make} <span>{model}</span>, {year}
         </Model>

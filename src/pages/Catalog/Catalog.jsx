@@ -1,12 +1,14 @@
 // import axios from "axios";
 import { ContainerWrapper } from 'components/App/App.styled';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 // import { useDispatch, useSelector } from "react-redux";
 import { AdvertList } from '../../components/AdvertList/AdvertList';
 import { LoadMoreBtn } from '../../components/LoadMoreBtn/LoadMoreBtn';
-import { SideBar } from '../../components/SideBar/SideBar';
+import { Filters } from '../../components/Filters/Filters';
 // import { getAdverts } from "../../helpers/api/fetchAdverts";
 import { useFetchAdverts } from '../../hooks/useFetchAdverts';
+import { BurgerBtn } from 'BurgerBtn/BurgerBtn';
+import { SideBar } from 'components/SideBar/SideBar';
 // import { fetchAdverts } from "../../redux/adverts/advertsOperations";
 // import { selectAdverts } from "../../redux/adverts/advertsSelectors";
 
@@ -19,6 +21,14 @@ const Catalog = () => {
   //   const [searchValue, setSearchValue] = useState(null);
   const [query, setQuery] = useState({});
   const [page, setPage] = useState(1);
+
+  const [showSideBar, setShowSideBar] = useState(false);
+
+  const addSideBar = () => setShowSideBar(true);
+
+  const removeSideBar = useCallback(() => {
+    setShowSideBar(false);
+  }, []);
   //   const [ids, setIds] = useLocalStorage("ids", []);
   const { adverts: catalog, noMoreAdverts } = useFetchAdverts(page, query);
 
@@ -27,8 +37,27 @@ const Catalog = () => {
   };
 
   const handleChangeQuery = params => {
-    setQuery(prevParams => ({ ...query, ...params }));
+    setQuery(prevParams => ({ ...prevParams, ...params }));
   };
+
+  const handleBackdropClick = event => {
+    if (event.target === event.currentTarget) {
+      removeSideBar();
+    }
+  };
+
+  useEffect(() => {
+    const handleEscKeyPress = event => {
+      if (showSideBar && event.key === 'Escape') {
+        removeSideBar();
+      }
+    };
+    window.addEventListener('keydown', handleEscKeyPress);
+    return () => {
+      window.removeEventListener('keydown', handleEscKeyPress);
+      document.body.style.overflow = 'auto';
+    };
+  }, [showSideBar, removeSideBar]);
 
   //   useEffect(() => {
   //     const catalog = getAdverts();
@@ -54,8 +83,10 @@ const Catalog = () => {
   //   console.log(adv);
 
   return (
-    <ContainerWrapper>
-      <SideBar handleChangeQuery={handleChangeQuery} />
+    <ContainerWrapper onClick={handleBackdropClick}>
+      {!showSideBar && <BurgerBtn addSideBar={addSideBar} />}
+      <SideBar showSideBar={showSideBar} removeSideBar={removeSideBar} />
+      <Filters handleChangeQuery={handleChangeQuery} />
       <AdvertList catalog={catalog} />
       {!noMoreAdverts && <LoadMoreBtn handleLoadMore={handleLoadMore} />}
     </ContainerWrapper>
