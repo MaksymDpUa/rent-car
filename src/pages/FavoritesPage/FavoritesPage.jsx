@@ -13,18 +13,11 @@ const Favorites = () => {
 
   useEffect(() => {
     const responseResolved = fetchedData => {
-      const newFavoriteAdverts = fetchedData
-        .map(({ value }) => value[0]);
-      setFavoriteAdverts(
-
-        prevValue => {
-          console.log(newFavoriteAdverts);
-          console.log(fetchedData);
-          return [...newFavoriteAdverts];
-        }
-      );
+      const newFavoriteAdverts = fetchedData.map(({ value }) => value[0]);
+      setFavoriteAdverts(prevValue => {
+        return [...newFavoriteAdverts];
+      });
     };
-
 
     const responseRejected = error => {
       console.log(error);
@@ -43,7 +36,7 @@ const Favorites = () => {
   const removeSideBar = useCallback(() => {
     setShowSideBar(false);
   }, []);
-  console.log(favoriteAdverts);
+
   return (
     <Container>
       {!showSideBar && <BurgerBtn addSideBar={addSideBar} />}

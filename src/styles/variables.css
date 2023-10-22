@@ -13,4 +13,6 @@
 
   --condition-bg-color: #f9f9f9;
   --condition-color: #363535;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-duration: 350ms;
 }
