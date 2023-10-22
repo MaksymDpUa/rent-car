@@ -36,8 +36,11 @@ export const AdvertCard = ({ car, favorite = false, toggleFavorite }) => {
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal(showModal => !showModal);
   const imgUrl = img || photoLink;
-  const companyAdress = address.split(',');
+  const companyAdress = address?.split(',') || [];
   const formatedMileage = formatMileage(mileage);
+  const functionalitiesDiscription = functionalities
+    ? functionalities[0]
+    : 'loading';
 
   return (
     <AdvertCardBox>
@@ -57,12 +60,13 @@ export const AdvertCard = ({ car, favorite = false, toggleFavorite }) => {
       </MainInfo>
       <SecondaryInfo>
         <Details>
-          {companyAdress[1].trim()} <Separator> | </Separator>
-          {companyAdress[2].trim()} <Separator> | </Separator> {rentalCompany}
+          {companyAdress[1]} <Separator> | </Separator>
+          {companyAdress[2]} <Separator> | </Separator> {rentalCompany}
         </Details>
         <Details>
           {type} <Separator> | </Separator> {model} <Separator> | </Separator>
-          {formatedMileage} <Separator> | </Separator> {functionalities[0]}
+          {formatedMileage} <Separator> | </Separator>{' '}
+          {functionalitiesDiscription}
         </Details>
       </SecondaryInfo>
       <DetailsBtn onClick={toggleModal}>Learn more</DetailsBtn>
@@ -74,4 +78,3 @@ export const AdvertCard = ({ car, favorite = false, toggleFavorite }) => {
     </AdvertCardBox>
   );
 };
-

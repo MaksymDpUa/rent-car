@@ -5,7 +5,7 @@ import { AdvertsListEl } from './AdvertList.styled';
 
 export const AdvertList = ({ catalog }) => {
   const [favorites, setFavorites] = useLocalStorage('ids', []);
-
+  // console.log(catalog);
   const checkIncludes = value => favorites.includes(value);
   const toggleFavorite = id => {
     if (!~favorites.indexOf(id)) {
